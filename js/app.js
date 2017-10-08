@@ -34,8 +34,16 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x+(dt*this.speed);
+
     //no y is needed, as enemies are moving only on x-scale?
     //this.y = this.y*dt;
+    //but in case enemy overflows the page, let's randomize the y again and set x to starting point.
+    if (this.x > 505) {
+      this.x = -50;
+      this.y = possibleEnemyStartingRows[getRandomIntInclusive(0,2)];
+      this.speed = getRandomIntInclusive(50,500);
+    }
+
 };
 
 // Draw the enemy on the screen, required method for game
