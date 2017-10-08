@@ -1,3 +1,5 @@
+let possibleEnemyStartingRows = [101,202,303];
+
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
@@ -8,11 +10,14 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
 
     //ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+
+    //the width of the canvas is 505 pixels, so let's initially pick some from 0 to 505.
+    this.x = x;
     //as enrmies float on 2nd, 3rd and 4th row of the play area, the y value can be only one of these three:
     //(expecting that drawing of the enemy image starts from the top left corner of grid position)
     //101,202,303,
-    this.x = x;
     this.y = y;
+    //how many pixels in second:
     this.speed = speed;
 };
 
@@ -22,7 +27,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x*dt;
+    this.x = this.x+(dt*this.speed);
+    //no y is needed, as enemies are moving only on x-scale?
     //this.y = this.y*dt;
 };
 
