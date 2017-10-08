@@ -1,7 +1,9 @@
 let possibleEnemyStartingRows = [101,202,303];
 
+let allEnemies = [];
+
 // Enemies our player must avoid
-var Enemy = function(x, y) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -42,17 +44,24 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-
-
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
 }
+
+// Now instantiate your objects.
+// Place all enemy objects in an array called allEnemies
+// Place the player object in a variable called player
+for (let enemy=0; enemy<3; enemy++) {
+  let startingX = getRandomIntInclusive(0,505);
+  let startingY = possibleEnemyStartingRows[getRandomIntInclusive(0,3)];
+  let speed = getRandomIntInclusive(1,30);
+  allEnemies.push(new Enemy(startingX, startingY, speed));
+}
+
+
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
