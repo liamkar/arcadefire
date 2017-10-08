@@ -1,4 +1,8 @@
-let possibleEnemyStartingRows = [101,202,303];
+//let possibleEnemyStartingRows = [101,202,303];
+//let possibleEnemyStartingRows = [0,101,202];
+//let possibleEnemyStartingRows = [50,151,252];
+//let possibleEnemyStartingRows = [50,150,250];
+let possibleEnemyStartingRows = [40,141,235];
 
 let allEnemies = [];
 
@@ -55,8 +59,12 @@ function getRandomIntInclusive(min, max) {
 // Place the player object in a variable called player
 for (let enemy=0; enemy<3; enemy++) {
   let startingX = getRandomIntInclusive(0,505);
-  let startingY = possibleEnemyStartingRows[getRandomIntInclusive(0,3)];
-  let speed = getRandomIntInclusive(1,30);
+  let startingY = possibleEnemyStartingRows[getRandomIntInclusive(0,2)];
+  let speed = getRandomIntInclusive(50,500);
+  console.log(startingX);
+  console.log(startingY);
+  console.log(speed);
+
   allEnemies.push(new Enemy(startingX, startingY, speed));
 }
 
