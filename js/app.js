@@ -115,6 +115,12 @@ Player.prototype.handleInput = function(direction) {
   }
 };
 
+Player.prototype.reset = function() {
+  this.x = 2 * 101;
+  this.y = 5 * 83;
+};
+
+
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
