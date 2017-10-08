@@ -100,6 +100,21 @@ Player.prototype.update = function() {
 //numCols = 5,
 };
 
+Player.prototype.handleInput = function(direction) {
+  if (direction === 'up') {
+    this.y = this.y - 83;
+  }
+  else if (direction === 'down') {
+    this.y = this.y + 83;
+  }
+  else if (direction === 'left') {
+    this.x = this.x - 101;
+  }
+  else if (direction === 'right') {
+    this.x = this.x + 101;
+  }
+};
+
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
